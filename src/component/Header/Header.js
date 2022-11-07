@@ -1,4 +1,5 @@
 import React from 'react';
+import wild from '../../Main/asset/wild.png'
 
 const Header = () => {
     return (
@@ -54,8 +55,9 @@ const Header = () => {
                 <a>Item 3</a>
               </li>
             </ul>
-          </div>
-          <a className="btn btn-ghost normal-case text-xl">go Wild </a>
+                </div>
+                <img className='w-10' src={wild} alt="" />
+          <a className="btn btn-ghost normal-case text-3xl font-bold"> <span className='text-green-600'>Go</span> Wild </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
