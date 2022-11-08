@@ -1,0 +1,13 @@
+.header{
+    background-image:linear-gradient(to bottom, rgba(68, 70, 79, 0.52), rgba(14, 4, 4, 0.954)), url(../asset/penguin11.jpg);
+    /* background-size: 100%; */
+    background-repeat: no-repeat;
+    height: 100%;
+     
+    
+    width: 80%;
+    
+    background-size: cover;
+    color: white;
+    padding: 20px;
+}

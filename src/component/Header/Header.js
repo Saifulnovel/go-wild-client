@@ -1,10 +1,11 @@
 import React from 'react';
+import { GiPalmTree } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import wild from '../../Main/asset/wild.png'
 
 const Header = () => {
     return (
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-slate-400 mb-5 py-4">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,7 +29,12 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Home</Link>
+                <Link
+                  className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700 "
+                  to="/"
+                >
+                  Home
+                </Link>
               </li>
               {/* <li tabIndex={0}>
                 <a className="justify-between">
@@ -53,7 +59,12 @@ const Header = () => {
                 </ul>
               </li> */}
               <li>
-                <Link to="/blogs">Blog</Link>
+                <Link
+                  className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700"
+                  to="/blogs"
+                >
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -61,21 +72,36 @@ const Header = () => {
           <a className="btn btn-ghost normal-case text-3xl font-bold">
             {" "}
             <span className="text-green-600">Go</span> Wild{" "}
+            <span className="text-green-600">
+              <GiPalmTree />
+            </span>{" "}
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to="/">Home</Link>
+              <Link
+                className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700"
+                to="/"
+              >
+                Home
+              </Link>
             </li>
 
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link
+                className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700"
+                to="/blogs"
+              >
+                Blogs
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <button className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700 p-3 rounded-lg">
+            Get Started
+          </button>
         </div>
       </div>
     );
