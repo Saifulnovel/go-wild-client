@@ -99,9 +99,11 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700 p-3 rounded-lg">
-            Get Started
-          </button>
+          <Link to='/login'>
+            <button className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700 p-3 rounded-lg">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     );
