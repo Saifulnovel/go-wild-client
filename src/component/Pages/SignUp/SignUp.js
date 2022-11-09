@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {  FaGoogle } from "react-icons/fa";
 
 import './SignUp.css'
@@ -14,7 +14,8 @@ import { AuthContext } from "../../../Context/auth-context";
 
 const SignUp = () => {
     const { providerLogin, register, userProfileInfo } =
-      useContext(AuthContext);
+    useContext(AuthContext);
+  const navigate = useNavigate()
 
   const googleProvider = new GoogleAuthProvider();
   
@@ -29,6 +30,7 @@ const SignUp = () => {
         .then((result) => {
           const user = result.user;
           console.log(user);
+          navigate("/");
         })
         .catch((error) => console.error(error));
     };

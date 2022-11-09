@@ -4,8 +4,9 @@ import login from '../../../Main/asset/login.svg'
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../../Context/auth-context";
 
-// import { AuthContext } from "../../../Context/Auth-context";
+
 // import app from '../../Config/firebase.config';
 
 
@@ -13,7 +14,7 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-//   const {emailLogin} = useContext(AuthContext);
+  const {emailLogin} = useContext(AuthContext);
   const [error, setError] = useState({ email: "", password: "" });
   const [userInfo, SetUserInfo] = useState({ email: "", password: "" });
   const location = useLocation();
@@ -25,17 +26,17 @@ const Login = () => {
     const mail = userInfo.email;
     const pass = userInfo.password;
 
-    // emailLogin(mail, pass)
-    //   // signInWithEmailAndPassword(auth, mail, pass)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //     event.target.reset();
-    //     toast.success("Login Success");
-    //     navigate(from, { replace: true });
-    //     // navigate(location?.state?.from?.pathname);
-    //   })
-    //   .catch((error) => {});
+    emailLogin(mail, pass)
+      // signInWithEmailAndPassword(auth, mail, pass)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        event.target.reset();
+        toast.success("Login Success");
+        navigate(from, { replace: true });
+        // navigate(location?.state?.from?.pathname);
+      })
+      .catch((error) => {});
   };
   const handleEmailChange = (event) => {
     const email = event.target.value;

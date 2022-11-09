@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import { GiPalmTree } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/auth-context';
 import wild from '../../Main/asset/wild.png'
 
 const Header = () => {
+  const {user, logOut } =useContext(AuthContext)
+
     return (
       <div className="navbar bg-slate-400 mb-5 py-4">
         <div className="navbar-start">
@@ -36,28 +40,7 @@ const Header = () => {
                   Home
                 </Link>
               </li>
-              {/* <li tabIndex={0}>
-                <a className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li> */}
+
               <li>
                 <Link
                   className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700"
@@ -99,11 +82,45 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login'>
-            <button className="text-white mr-3 border-white md:border-2 hover:bg-white hover:text-slate-600 transition ease-in-out duration-700 p-3 rounded-lg">
-              Get Started
-            </button>
-          </Link>
+          {user?.uid ? (
+            <>
+              <div
+                data-tip={user?.displayName}
+                className="w-16 tooltip tooltip-left mr-3 rounded-full"
+              >
+               
+                <div className="dropdown dropdown-bottom dropdown-end mr-5">
+                  <label tabIndex={0} className="btn border-white bg-slate-400 hover:bg-white text-slate-900">
+                    <FaUserCircle></FaUserCircle>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link>My Reviews</Link>
+                    </li>
+                    <li>
+                      <Link>My Services</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button onClick={logOut} className="btn btn-outline">
+                <FaSignOutAlt></FaSignOutAlt>
+                <span className="w-9 md:w-20 ">Sign out</span>{" "}
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="text-white mx-5">
+                <span>{user?.email}</span>
+              </div>
+              <Link to="/login" className="btn btn-">
+                Get started
+              </Link>
+            </>
+          )}
         </div>
       </div>
     );
