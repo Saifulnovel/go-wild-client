@@ -25,10 +25,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
-  const fbLoginProvider = (provider) => {
-    setLoading(true);
-    return signInWithPopup(auth, provider);
-  };
+  
 
   const register = (mail, pass) => {
     setLoading(true);
@@ -61,7 +58,7 @@ const AuthProvider = ({ children }) => {
     emailLogin,
     logOut,
     providerLogin,
-    fbLoginProvider,
+    
     user,
     userProfileInfo,
   };

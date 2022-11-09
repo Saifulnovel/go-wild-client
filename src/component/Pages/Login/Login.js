@@ -1,5 +1,6 @@
 import {React,  useContext } from "react";
 import { useState } from "react";
+import login from '../../../Main/asset/login.svg'
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -66,69 +67,78 @@ const Login = () => {
     }
   };
 
-  return (
-    <div className="hero min-h-screen bg-base-200 flex-col lg:flex-row-reverse">
-      <div className="hero-content ">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
+    return (
+      <div className="bg-base-200">
+        <h1 className="font-bold text-6xl">Login Now!</h1>
+        <div className="hero min-h-screen  flex-col lg:flex-row-reverse">
+          
+            <div className="text-center lg:text-left">
+              <div className="">
+                <img src={login} alt="" />
+              </div>
+              {/* <p className="py-6">
             By Login You can access our courses. Thank you. Enjoy your Journey
             with us
-          </p>
-        </div>
-        <form onSubmit={handleFormSubmit}>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  required
-                  type="text"
-                  placeholder="email"
-                  name="email"
-                  onChange={handleEmailChange}
-                  className="input input-bordered"
-                />
-                {error.email && <p className="text-red-500">{error.email}</p>}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  required
-                  type="text"
-                  placeholder="password"
-                  name="password"
-                  onChange={handlePasswordChange}
-                  className="input input-bordered"
-                />
-                {error.password && (
-                  <p className="text-red-500"> {error.password}</p>
-                )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
-              </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
-              </div>
-              <p>
-                Do not have an account?{" "}
-                <Link className="text-orange-500" to="/signup">
-                  Sign Up Here
-                </Link>
-              </p>
+          </p> */}
             </div>
-          </div>
-        </form>
+            <div>
+              <form onSubmit={handleFormSubmit}>
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                  <div className="card-body">
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Email</span>
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="email"
+                        name="email"
+                        onChange={handleEmailChange}
+                        className="input input-bordered"
+                      />
+                      {error.email && (
+                        <p className="text-red-500">{error.email}</p>
+                      )}
+                    </div>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Password</span>
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="password"
+                        name="password"
+                        onChange={handlePasswordChange}
+                        className="input input-bordered"
+                      />
+                      {error.password && (
+                        <p className="text-red-500"> {error.password}</p>
+                      )}
+                      <label className="label">
+                        <a href="#" className="label-text-alt link link-hover">
+                          Forgot password?
+                        </a>
+                      </label>
+                    </div>
+                    <div className="form-control mt-6">
+                      <button className="btn btn-primary">Login</button>
+                    </div>
+                    <p>
+                      Do not have an account?{" "}
+                      <Link className="text-orange-500" to="/signup">
+                        Sign Up Here
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default Login;
