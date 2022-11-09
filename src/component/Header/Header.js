@@ -8,8 +8,9 @@ import wild from '../../Main/asset/wild.png'
 const Header = () => {
   const {user, logOut } =useContext(AuthContext)
 
-    return (
-      <div className="navbar bg-slate-400 mb-5 py-4">
+  return (
+      
+      <div className="navbar  bg-slate-400 mb-3 py-4">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -88,9 +89,11 @@ const Header = () => {
                 data-tip={user?.displayName}
                 className="w-16 tooltip tooltip-left mr-3 rounded-full"
               >
-               
                 <div className="dropdown dropdown-bottom dropdown-end mr-5">
-                  <label tabIndex={0} className="btn border-white bg-slate-400 hover:bg-white text-slate-900">
+                  <label
+                    tabIndex={0}
+                    className="btn border-white bg-slate-400 hover:bg-white text-slate-900"
+                  >
                     <FaUserCircle></FaUserCircle>
                   </label>
                   <ul

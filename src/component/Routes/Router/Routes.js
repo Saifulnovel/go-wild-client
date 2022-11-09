@@ -5,6 +5,7 @@ import Main from '../../../Main/Main';
 import Blogs from '../../Pages/Blogs/Blogs';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Login from '../../Pages/Login/Login';
+import Review from '../../Pages/Review/Review';
 import SignUp from '../../Pages/SignUp/SignUp';
 
 const routes = createBrowserRouter([
@@ -28,6 +29,10 @@ const routes = createBrowserRouter([
             {
                 path: '/signup',
                 element:<SignUp/>
+            },
+            {
+                path: '/review',
+                element:<Review/>
             }
         ]
     },

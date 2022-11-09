@@ -47,7 +47,7 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="flex gap-10 justify-center  flex-col lg:flex-row mb-2">
+        <div className="flex gap-10 justify-center mt-48 border  flex-col lg:flex-row mb-2">
           <div className="card lg:w-1/3 sm:w-full bg-base-100 shadow-xl">
             <figure>
               <img className="w-4/5" src={logo55} alt="Shoes" />
@@ -89,8 +89,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className='container'>
-          <div className="card lg:card-side bg-base-100 container shadow-xl">
+        <div className="container">
+          <div className="card lg:card-side bg-base-100 border py-2 mt-52 container shadow-2xl">
             <figure>
               <img className="w-3/4 m-5 rounded-lg" src={logo6} alt="Album" />
             </figure>
