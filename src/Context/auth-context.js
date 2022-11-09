@@ -19,14 +19,9 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [data, setData] = useState();
+  
 
-  useEffect(() => { 
-    fetch("https://y-coral-gamma.vercel.app")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-
-  },[])
+  
 
   const providerLogin = (provider) => {
     setLoading(true);
@@ -66,7 +61,7 @@ const AuthProvider = ({ children }) => {
     emailLogin,
     logOut,
     providerLogin,
-    data,
+  
     user,
     userProfileInfo,
   };
