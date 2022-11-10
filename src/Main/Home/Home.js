@@ -9,7 +9,7 @@ const Home = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/photos")
+    fetch("http://localhost:5000/photos?limit=3")
       .then((res) => res.json())
       .then((data) => setData(data.photos));
     console.log(data);
@@ -38,13 +38,41 @@ const Home = () => {
             </button>
           </Link>
         </div>
-
         <div>
+          <h1 className="text-6xl font-serif font-bold">Get our services</h1>
+        </div>
+        <div className="flex flex-col lg:flex-row gap-10 justify-center mt-10">
           {data.map((services) => (
             <div key={services._id}>
-              <h1>{services.length} ooo vaaaiiiiiii</h1>
+              <div className="">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure>
+                    <img
+                      className=" min-h-full max-h-72"
+                      src={services.picture}
+                      alt="animals"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">{services.name}</h2>
+                    <p>{services.details.slice(0, 100)}...</p>
+                    <div className="card-actions justify-end">
+                      <button className="btn btn-primary">Veiw more</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-end mt-5">
+          <Link to='/services'>
+            {" "}
+            <button className="btn btn-secondary btn-wide">
+              See more services
+            </button>
+          </Link>
         </div>
 
         <div className="flex gap-10 justify-center mt-48 border  flex-col lg:flex-row mb-2">
