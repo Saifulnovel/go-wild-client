@@ -9,7 +9,7 @@ const MyReview = ({ reviewData }) => {
       <div>
         <div className="grid border my-2 rounded-lg glass grid-cols-1 lg:grid-cols-3">
           <div className=" flex-col mx-auto">
-            <img src={user.photoURL} className="w-40 my-2" alt="" />
+            <img  src={user.photoURL} className="w-40 rounded-lg my-2" alt="" />
             <p className="text-lg">
               User Name:{review ? review.userName : "No user Name"}{" "}
             </p>

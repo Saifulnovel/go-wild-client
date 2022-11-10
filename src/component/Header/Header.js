@@ -101,10 +101,10 @@ const Header = () => {
                     className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                   >
                     <li>
-                      <Link className='/myreviews'>My Reviews</Link>
+                      <Link to='/myreviews'>My Reviews</Link>
                     </li>
                     <li>
-                      <Link>My Services</Link>
+                      <Link to="/addservice" >Add Service</Link>
                     </li>
                   </ul>
                 </div>

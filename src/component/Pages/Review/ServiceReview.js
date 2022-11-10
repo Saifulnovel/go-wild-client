@@ -6,7 +6,9 @@ import MyReview from "./MyReview";
 
 
 const ServiceReview = () => {
-  const services = useLoaderData();
+  const service = useLoaderData();
+  const services = service.photos
+  console.log(services);
   useTitle('My Reviews')
   return (
     <div className="container my-7 rounded-lg mx-auto">
