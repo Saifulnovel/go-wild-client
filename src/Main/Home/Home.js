@@ -4,9 +4,11 @@ import './Home.css'
 import logo4 from '../asset/logo4.svg'
 import logo55 from '../asset/logo55.svg'
 import logo6 from '../asset/logo6.jpg'
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
   const [data, setData] = useState([]);
+  useTitle("Home")
 
   useEffect(() => {
     fetch("http://localhost:5000/photos?limit=3")

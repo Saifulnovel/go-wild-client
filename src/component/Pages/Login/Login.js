@@ -5,6 +5,7 @@ import login from '../../../Main/asset/login.svg'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/auth-context";
+import useTitle from "../../../hooks/useTitle";
 
 
 // import app from '../../Config/firebase.config';
@@ -13,6 +14,7 @@ import { AuthContext } from "../../../Context/auth-context";
 // const auth = getAuth(app);
 
 const Login = () => {
+  useTitle('Login')
   const navigate = useNavigate();
   const {emailLogin} = useContext(AuthContext);
   const [error, setError] = useState({ email: "", password: "" });

@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../../hooks/useTitle';
 
 const Review = () => {
+  useTitle('Reviews')
     return (
       <div className="flex justify-center mb-5">
         <div className="card w-96 bg-base-100 shadow-xl">

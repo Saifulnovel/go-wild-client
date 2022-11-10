@@ -11,8 +11,10 @@ import {  GoogleAuthProvider } from "firebase/auth";
 
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/auth-context";
+import useTitle from "../../../hooks/useTitle";
 
 const SignUp = () => {
+  useTitle('Sign up')
     const { providerLogin, register, userProfileInfo } =
     useContext(AuthContext);
   const navigate = useNavigate()
