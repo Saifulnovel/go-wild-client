@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import useTitle from '../../../hooks/useTitle';
 
 const Review = () => {
+  const navigate = useNavigate()
   useTitle("Reviews");
   const service = useLoaderData();
 
@@ -13,7 +14,7 @@ const Review = () => {
     e.preventDefault();
     
     const update = { ...service, review };
-    
+    console.log(update);
     fetch(`https://y-coral-gamma.vercel.app/photos/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -21,6 +22,9 @@ const Review = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    e.target.reset();
+    navigate("/services");
+
   };
   const handleBlur = (e) => {
     const name = e.target.name;

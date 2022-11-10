@@ -5,7 +5,9 @@ import Main from '../../../Main/Main';
 import Blogs from '../../Pages/Blogs/Blogs';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Login from '../../Pages/Login/Login';
+
 import ReviewForm from '../../Pages/Review/ReviewForm';
+import ServiceReview from '../../Pages/Review/ServiceReview';
 import Service from '../../Pages/Service/Service';
 import ServiceDetails from '../../Pages/Service/ServiceDetails';
 import SignUp from '../../Pages/SignUp/SignUp';
@@ -47,6 +49,11 @@ const routes = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://y-coral-gamma.vercel.app/photos/${params.id}`),
         element: <ServiceDetails></ServiceDetails>,
+      },
+      {
+        path: "/myreviews",
+        element: <ServiceReview />,
+        loader: () => fetch("https://y-coral-gamma.vercel.app/photos"),
       },
     ],
   },
