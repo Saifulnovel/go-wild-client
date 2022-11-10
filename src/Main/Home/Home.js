@@ -11,7 +11,7 @@ const Home = () => {
   useTitle("Home")
 
   useEffect(() => {
-    fetch("http://localhost:5000/photos?limit=3")
+    fetch("https://y-coral-gamma.vercel.app/photos?limit=3")
       .then((res) => res.json())
       .then((data) => setData(data.photos));
     
@@ -61,7 +61,9 @@ const Home = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className=" text-2xl font-serif card-title">{services.name}</h2>
+                    <h2 className=" text-2xl font-serif card-title">
+                      {services.name}
+                    </h2>
                     <p>{services.details.slice(0, 100)}...</p>
                     <div className="mt-2 card-actions justify-between">
                       <div>
@@ -70,11 +72,13 @@ const Home = () => {
                           {services.price}$
                         </span>{" "}
                       </div>
-                      <button className="btn btn-primary">Veiw more</button>
+                      <Link to={`/services/${services._id}`}>
+                        <button className="btn btn-primary">Veiw more</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>{" "}
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../hooks/useTitle';
 
 const Service = () => {
@@ -13,13 +14,17 @@ const Service = () => {
           {data.map((services) => (
             <div key={services._id} className="mx-auto border rounded-lg">
               <div className="card w-96 bg-base-100 shadow-xl">
-                <figure>
-                  <img
-                    className=" min-h-full max-h-72"
-                    src={services.picture}
-                    alt="animals"
-                  />
-                </figure>
+                <PhotoProvider>
+                  <PhotoView src={services.picture}>
+                    <figure>
+                      <img
+                        className=" min-h-full max-h-72"
+                        src={services.picture}
+                        alt="animals"
+                      />
+                    </figure>
+                  </PhotoView>
+                </PhotoProvider>
                 <div className="card-body">
                   <h2 className="text-2xl font-serif card-title">
                     {services.name}
@@ -32,7 +37,9 @@ const Service = () => {
                         {services.price}$
                       </span>{" "}
                     </div>
-                    <button className="btn btn-primary">Veiw more</button>
+                    <Link to={`/services/${services._id}`}>
+                      <button className="btn btn-primary">Veiw more</button>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Login from '../../Pages/Login/Login';
 import Review from '../../Pages/Review/Review';
 import Service from '../../Pages/Service/Service';
+import ServiceDetails from '../../Pages/Service/ServiceDetails';
 import SignUp from '../../Pages/SignUp/SignUp';
 
 const routes = createBrowserRouter([
@@ -37,7 +38,13 @@ const routes = createBrowserRouter([
       {
         path: "/services",
         element: <Service></Service>,
-        loader: () => fetch("http://localhost:5000/photos"),
+        loader: () => fetch("https://y-coral-gamma.vercel.app/photos"),
+      },
+      {
+        path: "/services/:id",
+        loader: ({ params }) =>
+          fetch(`https://y-coral-gamma.vercel.app/photos/${params.id}`),
+        element:<ServiceDetails></ServiceDetails>
       },
     ],
   },
