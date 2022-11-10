@@ -12,7 +12,7 @@ const Home = () => {
     fetch("http://localhost:5000/photos?limit=3")
       .then((res) => res.json())
       .then((data) => setData(data.photos));
-    console.log(data);
+    
   }, []);
 
     
@@ -41,6 +41,11 @@ const Home = () => {
         <div>
           <h1 className="text-6xl font-serif font-bold">Get our services</h1>
         </div>
+        {/*
+        --------------------------------------
+        service 3item are here 
+        ------------------------------------ 
+        */}
         <div className="flex flex-col lg:flex-row gap-10 justify-center mt-10">
           {data.map((services) => (
             <div key={services._id}>
@@ -54,9 +59,15 @@ const Home = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">{services.name}</h2>
+                    <h2 className=" text-2xl font-serif card-title">{services.name}</h2>
                     <p>{services.details.slice(0, 100)}...</p>
-                    <div className="card-actions justify-end">
+                    <div className="mt-2 card-actions justify-between">
+                      <div>
+                        Price:{" "}
+                        <span className="badge badge-secondary">
+                          {services.price}$
+                        </span>{" "}
+                      </div>
                       <button className="btn btn-primary">Veiw more</button>
                     </div>
                   </div>
@@ -66,15 +77,24 @@ const Home = () => {
           ))}
         </div>
 
+        {/* 
+        --------------------------------------
+        see more service
+        --------------------------------------
+         */}
         <div className="flex justify-end mt-5">
-          <Link to='/services'>
+          <Link to="/services">
             {" "}
             <button className="btn btn-secondary btn-wide">
               See more services
             </button>
           </Link>
         </div>
-
+        {/*
+          ---------------------------------------
+          extra section 1
+          ---------------------------------------
+           */}
         <div className="flex gap-10 justify-center mt-48 border  flex-col lg:flex-row mb-2">
           <div className="card lg:w-1/3 sm:w-full bg-base-100 shadow-xl">
             <figure>
@@ -117,6 +137,11 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* 
+        ------------------------------------------
+        extra section 2
+        ------------------------------------------
+        */}
         <div className="container">
           <div className="card lg:card-side bg-base-100 border py-2 mt-52 container shadow-2xl">
             <figure>
