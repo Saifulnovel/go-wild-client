@@ -12,6 +12,7 @@ import AddServices from '../../Pages/Service/AddServices';
 import Service from '../../Pages/Service/Service';
 import ServiceDetails from '../../Pages/Service/ServiceDetails';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRoutes from '../PrivateRouter/PrivateRoutes';
 
 const routes = createBrowserRouter([
   {
@@ -53,12 +54,13 @@ const routes = createBrowserRouter([
       },
       {
         path: "/myreviews",
-        element: <ServiceReview />,
+        element: <PrivateRoutes><ServiceReview/></PrivateRoutes>,
+        
         loader: () => fetch("https://y-coral-gamma.vercel.app/photos"),
       },
       {
-        path: '/addservice',
-        element:<AddServices/>
+        path: "/addservice",
+        element:<PrivateRoutes><AddServices/></PrivateRoutes>,
       },
     ],
   },
