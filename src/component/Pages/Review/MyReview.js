@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
+import { FaTrash } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/auth-context';
 
 const MyReview = ({ reviewData }) => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    console.log(user.photoURL);
     const { review, name } = reviewData;
-    console.log(reviewData);
+    
     return (
       <div>
         <div className="grid border my-2 rounded-lg glass grid-cols-1 lg:grid-cols-3">
           <div className=" flex-col mx-auto">
-            <img  src={user.photoURL} className="w-40 rounded-lg my-2" alt="" />
+            <img src={user.photoURL} className="w-40 rounded-lg my-2" alt="" />
             <p className="text-lg">
               User Name:{review ? review.userName : "No user Name"}{" "}
             </p>
@@ -18,17 +20,18 @@ const MyReview = ({ reviewData }) => {
             {review ? (
               <>
                 <h3 className="text-3xl text-center">
-                  Here is Review for{" "}
-                  <span className="text-orange-700">{name}</span>
+                  {" "}
+                  <span className="text-orange-700">{name}</span> reviews
                 </h3>
                 <p>
-                  <span>Your Retings: </span>
+                  <span>Ratings: </span>
                   {review?.ratings}
                 </p>
                 <p>
                   <span>Your Review: </span>
                   {review?.reviews}
-                </p>
+                            </p>
+                            <button className='btn btn-circle btn-error'><FaTrash/></button>
               </>
             ) : (
               <h4 className="text-center flex items-center">

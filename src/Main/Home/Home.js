@@ -5,6 +5,8 @@ import logo4 from '../asset/logo4.svg'
 import logo55 from '../asset/logo55.svg'
 import logo6 from '../asset/logo6.jpg'
 import useTitle from '../../hooks/useTitle';
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -34,9 +36,9 @@ const Home = () => {
               patience.”{" "}
             </p>
           </div>
-          <Link to="/courseindex">
+          <Link to="/signup">
             <button className="btn btn-wide btn-warning rounded-md hover:bg-white">
-              Get Our Services
+              Go for it
             </button>
           </Link>
         </div>
@@ -53,13 +55,17 @@ const Home = () => {
             <div key={services._id}>
               <div className="">
                 <div className="card w-96 bg-base-100 shadow-xl">
-                  <figure>
-                    <img
-                      className=" min-h-full max-h-72"
-                      src={services.picture}
-                      alt="animals"
-                    />
-                  </figure>
+                  <PhotoProvider>
+                    <PhotoView src={services.picture}>
+                      <figure>
+                        <img
+                          className=" min-h-full max-h-72"
+                          src={services.picture}
+                          alt="animals"
+                        />
+                      </figure>
+                    </PhotoView>
+                  </PhotoProvider>
                   <div className="card-body">
                     <h2 className=" text-2xl font-serif card-title">
                       {services.name}
